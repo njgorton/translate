@@ -5,8 +5,8 @@ import ColorContext from '../contexts/ColorContext'
 // Commented out code is for the this.context property instead of the Consumer being used below:
 class Button extends React.Component {
     // static contextType = LanguageContext
-    renderSumbit(value) {
-        return value === 'english' ? 'Submit' : 'Voorleggen'
+    renderSumbit(language) {
+        return language === 'english' ? 'Submit' : 'Voorleggen'
     }
 
     renderButton(color) {
@@ -14,7 +14,7 @@ class Button extends React.Component {
             <button className={`ui button ${color}`}>
                 {/* {text} */}
                 <LanguageContext.Consumer>
-                    {(value) => this.renderSumbit(value)}
+                    {({ language }) => this.renderSumbit(language)}
                 </LanguageContext.Consumer>
             </button>
         )
